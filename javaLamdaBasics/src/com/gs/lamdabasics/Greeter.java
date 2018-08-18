@@ -11,6 +11,12 @@ public class Greeter
 		Greeter greeter = new Greeter();
 		HelloWorldGreeting helloWorldGreeting = new HelloWorldGreeting();
 		greeter.greet(helloWorldGreeting);
+		System.out.println("--------------");
+		//Equivalent   lambda expression 
+		Greeting greeting = ()->System.out.println("lamda hello world");
+		greeting.performs();
+		
+		
 	}
 
 }
