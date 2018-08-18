@@ -15,7 +15,17 @@ public class Greeter
 		//Equivalent   lambda expression 
 		Greeting greeting = ()->System.out.println("lamda hello world");
 		greeting.performs();
+		System.out.println("====================");
+		//anonymous inner class implementation
 		
+		Greeting anonymous = new Greeting() {
+			public void performs() 
+			{
+				System.out.println("anonymous inner class implementation");
+			}
+		};
+		
+		anonymous.performs();
 		
 	}
 
