@@ -38,6 +38,7 @@ public class Java7Comparator {
 		//step 2
 		System.out.println(people);
 		System.out.println("-----------------------");
+		System.out.println();
 		// step 3 : create a method that print all people whose last name Begging with C
 		printLastNameBegingWithC(people);
 
