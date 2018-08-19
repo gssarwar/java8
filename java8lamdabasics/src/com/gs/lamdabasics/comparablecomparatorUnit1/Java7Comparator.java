@@ -1,4 +1,4 @@
-package com.gs.lamdabasics.comparablecomparator;
+package com.gs.lamdabasics.comparablecomparatorUnit1;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -40,8 +40,34 @@ public class Java7Comparator {
 	//	System.out.println(people);
 		System.out.println("-----------------------");
 		// step 3 : create a method that print all people whose last name Begging with C
-		printLastNameBegingWithC(people);
-
+	//	printLastNameBegingWithC(people);
+		
+		//another way of implementation
+		// step 3 : create a method that print all people whose last name Begging with C
+		printConditionally(people,new Condition() {
+			@Override
+			public boolean test(Person p) {
+				return p.getLastName().startsWith("C");
+			}
+		});
+		
+		System.out.println("-----------print all person with first name start with the C------------");
+		printConditionally(people,new Condition() {
+			@Override
+			public boolean test(Person p) {
+				return p.getFirstName().startsWith("C");
+			}
+		});
+	}
+	private static void printConditionally(List<Person> people, Condition condition) {
+		for(Person p:people)
+		{
+			if(condition.test(p))
+			{
+				System.out.println(p);
+			}
+		}
+		
 	}
 
 	private static void printAll(List<Person> people) {
@@ -62,3 +88,10 @@ public class Java7Comparator {
 	}
 
 }
+
+ interface Condition {
+	 boolean test(Person p);
+ }
+
+
+

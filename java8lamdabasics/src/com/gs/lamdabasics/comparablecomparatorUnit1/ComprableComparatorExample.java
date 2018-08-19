@@ -1,6 +1,7 @@
-package com.gs.lamdabasics.comparablecomparator;
+package com.gs.lamdabasics.comparablecomparatorUnit1;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class ComprableComparatorExample {
@@ -25,6 +26,8 @@ public class ComprableComparatorExample {
 		people.add(person3);
 		people.add(person4);
 		people.add(person5);
+		
+		Comparator<Person> lastNameComparator = (o1,o2) ->o1.getLastName().compareTo(o2.getLastName());
 		
 		
 	}

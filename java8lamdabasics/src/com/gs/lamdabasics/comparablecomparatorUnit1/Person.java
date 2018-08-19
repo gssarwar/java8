@@ -1,4 +1,4 @@
-package com.gs.lamdabasics.comparablecomparator;
+package com.gs.lamdabasics.comparablecomparatorUnit1;
 
 public class Person 
 {
