@@ -1,0 +1,14 @@
+	
+	 greetingFunction =  () -> System.out.println("Helloe");
+	 
+	 doubleNumberFunction =(int a) -> a*2;
+	 
+	 addFunction = (int a,int b)-> a+b;
+	 
+	 safedivide =  (int a,int b) -> {
+	 if(b==0) return 0
+	 return a/b;
+	 }
+	 
+	 StringLengthCountFunction = (String s) -> s.lenght();
+	 
