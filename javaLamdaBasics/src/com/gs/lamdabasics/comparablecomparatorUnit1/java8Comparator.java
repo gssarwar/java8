@@ -1,14 +1,11 @@
-package com.gs.lamdabasics.comparablecomparator.comparablecomparatorUnit2;
+package com.gs.lamdabasics.comparablecomparatorUnit1;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Predicate;
 
-import com.gs.lamdabasics.comparablecomparator.Person;
-
-public class java8ComparatorWithPredicats {
+public class java8Comparator {
 
 	public static void main(String[] args) {
 		
@@ -49,30 +46,32 @@ public class java8ComparatorWithPredicats {
 		System.out.println("-----------print all person with first name start with the C------------");
 		printConditionally(people,p->p.getFirstName().startsWith("C"));
 	}
-	
-	
-	//in this method instead of Condition interface we can use the Predicates interface
-	/*private static void printConditionally(List<Person> people, Condition condition) {
+	private static void printConditionally(List<Person> people, Condition condition) {
 		for(Person p:people)
 		{
 			if(condition.test(p))
 			{
 				System.out.println(p);
 			}
-		}*/
-		//above method implementation with Predicate interface functional interface
-		private static void printConditionally(List<Person> people, Predicate<Person> predicate) {
-			for(Person p:people)
-			{
-				if(predicate.test(p))
-				{
-					System.out.println(p);
-				}
-			}
+		}
 		
 	}
 
-	
+	/*private static void printAll(List<Person> people) {
+			for(Person p:people)
+			{
+				System.out.println(p);
+			}
+		
+	}*/
 
-	
+	private static void printLastNameBegingWithC(List<Person> people)
+	{
+		for (Person p:people) {
+			if(p.getLastName().startsWith("C")){
+			System.out.println(p);
+			}
+		}
+	}
+
 }

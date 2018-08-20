@@ -1,12 +1,15 @@
-package com.gs.lamdabasics.comparablecomparator.comparablecomparatorUnit1;
+package com.gs.lamdabasics.comparablecomparatorUnit2;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class java8ComparatorWithPredicats {
+import com.gs.lamdabasics.comparablecomparator.Person;
+
+public class java8ComparatorWithPredicatsAndConsumer {
 
 	public static void main(String[] args) {
 		
@@ -33,7 +36,7 @@ public class java8ComparatorWithPredicats {
 		Collections.sort(people, lastNameComparator);
 		//step 2 print all people
 	//	printAll(people);
-		printConditionally(people,p ->true);
+		performConditionally(people,p ->true,p ->System.out.println(p));
 	//	System.out.println(people);
 		System.out.println("-----------------------");
 		// step 3 : create a method that print all people whose last name Begging with C
@@ -42,34 +45,32 @@ public class java8ComparatorWithPredicats {
 		//another way of implementation
 		// step 3 : create a method that print all people whose last name Begging with C
 		
-		printConditionally(people,p ->p.getLastName().startsWith("C"));
+		performConditionally(people,p ->p.getLastName().startsWith("C"),p ->System.out.println(p));
 		
 		System.out.println("-----------print all person with first name start with the C------------");
-		printConditionally(people,p->p.getFirstName().startsWith("C"));
+		performConditionally(people,p->p.getFirstName().startsWith("C"),p ->System.out.println(p.getFirstName()));
 	}
 	
 	
 	//in this method instead of Condition interface we can use the Predicates interface
-	private static void printConditionally(List<Person> people, Condition condition) {
+	/*private static void printConditionally(List<Person> people, Condition condition) {
 		for(Person p:people)
 		{
 			if(condition.test(p))
 			{
 				System.out.println(p);
 			}
-		}
+		}*/
 		//above method implementation with Predicate interface functional interface
-	
-	
-		/*private static void printConditionally(List<Person> people, Predicate<Person> predicate) {
+		private static void performConditionally(List<Person> people, Predicate<Person> predicate,Consumer<Person> consumer) {
 			for(Person p:people)
 			{
 				if(predicate.test(p))
 				{
-					System.out.println(p);
+					consumer.accept(p);
 				}
 			}
-		*/
+		
 	}
 
 	

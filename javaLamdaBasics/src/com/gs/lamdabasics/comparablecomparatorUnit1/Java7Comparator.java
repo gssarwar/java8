@@ -1,11 +1,11 @@
-package com.gs.lamdabasics.comparablecomparator.comparablecomparatorUnit1;
+package com.gs.lamdabasics.comparablecomparatorUnit1;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class java8Comparator {
+public class Java7Comparator {
 
 	public static void main(String[] args) {
 		
@@ -28,11 +28,15 @@ public class java8Comparator {
 		people.add(person5);
 		
 		//step 1 java 7 style sorting using comparator 
-		Comparator<Person> lastNameComparator = (o1,o2) ->o1.getLastName().compareTo(o2.getLastName());
-		Collections.sort(people, lastNameComparator);
+		Comparator<Person> person = new Comparator<Person>() {
+			@Override
+			public int compare(Person o1, Person o2) {
+				return o1.getLastName().compareTo(o2.getLastName());
+			}
+		};
+		Collections.sort(people, person);
 		//step 2 print all people
-	//	printAll(people);
-		printConditionally(people,p ->true);
+		printAll(people);
 	//	System.out.println(people);
 		System.out.println("-----------------------");
 		// step 3 : create a method that print all people whose last name Begging with C
@@ -40,11 +44,20 @@ public class java8Comparator {
 		
 		//another way of implementation
 		// step 3 : create a method that print all people whose last name Begging with C
-		
-		printConditionally(people,p ->p.getLastName().startsWith("C"));
+		printConditionally(people,new Condition() {
+			@Override
+			public boolean test(Person p) {
+				return p.getLastName().startsWith("C");
+			}
+		});
 		
 		System.out.println("-----------print all person with first name start with the C------------");
-		printConditionally(people,p->p.getFirstName().startsWith("C"));
+		printConditionally(people,new Condition() {
+			@Override
+			public boolean test(Person p) {
+				return p.getFirstName().startsWith("C");
+			}
+		});
 	}
 	private static void printConditionally(List<Person> people, Condition condition) {
 		for(Person p:people)
@@ -57,13 +70,13 @@ public class java8Comparator {
 		
 	}
 
-	/*private static void printAll(List<Person> people) {
+	private static void printAll(List<Person> people) {
 			for(Person p:people)
 			{
 				System.out.println(p);
 			}
 		
-	}*/
+	}
 
 	private static void printLastNameBegingWithC(List<Person> people)
 	{
@@ -75,3 +88,10 @@ public class java8Comparator {
 	}
 
 }
+
+ interface Condition {
+	 boolean test(Person p);
+ }
+
+
+

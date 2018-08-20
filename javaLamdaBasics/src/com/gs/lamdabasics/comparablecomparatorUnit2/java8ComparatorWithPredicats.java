@@ -1,15 +1,14 @@
-package com.gs.lamdabasics.comparablecomparator.comparablecomparatorUnit2;
+package com.gs.lamdabasics.comparablecomparatorUnit2;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 import com.gs.lamdabasics.comparablecomparator.Person;
 
-public class java8ComparatorWithPredicatsAndConsumer {
+public class java8ComparatorWithPredicats {
 
 	public static void main(String[] args) {
 		
@@ -36,7 +35,7 @@ public class java8ComparatorWithPredicatsAndConsumer {
 		Collections.sort(people, lastNameComparator);
 		//step 2 print all people
 	//	printAll(people);
-		performConditionally(people,p ->true,p ->System.out.println(p));
+		printConditionally(people,p ->true);
 	//	System.out.println(people);
 		System.out.println("-----------------------");
 		// step 3 : create a method that print all people whose last name Begging with C
@@ -45,10 +44,10 @@ public class java8ComparatorWithPredicatsAndConsumer {
 		//another way of implementation
 		// step 3 : create a method that print all people whose last name Begging with C
 		
-		performConditionally(people,p ->p.getLastName().startsWith("C"),p ->System.out.println(p));
+		printConditionally(people,p ->p.getLastName().startsWith("C"));
 		
 		System.out.println("-----------print all person with first name start with the C------------");
-		performConditionally(people,p->p.getFirstName().startsWith("C"),p ->System.out.println(p.getFirstName()));
+		printConditionally(people,p->p.getFirstName().startsWith("C"));
 	}
 	
 	
@@ -62,12 +61,12 @@ public class java8ComparatorWithPredicatsAndConsumer {
 			}
 		}*/
 		//above method implementation with Predicate interface functional interface
-		private static void performConditionally(List<Person> people, Predicate<Person> predicate,Consumer<Person> consumer) {
+		private static void printConditionally(List<Person> people, Predicate<Person> predicate) {
 			for(Person p:people)
 			{
 				if(predicate.test(p))
 				{
-					consumer.accept(p);
+					System.out.println(p);
 				}
 			}
 		
