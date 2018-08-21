@@ -1,4 +1,4 @@
-package com.gs.lamdabasics;
+package com.gs.lamdabasics.common;
 
 public class RunnableExample 
 {
