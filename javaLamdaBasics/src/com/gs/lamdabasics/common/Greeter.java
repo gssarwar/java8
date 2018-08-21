@@ -8,6 +8,7 @@ public class Greeter
 	}
 	public static void main(String[] args) 
 	{
+		System.out.println();
 		Greeter greeter = new Greeter();
 		HelloWorldGreeting helloWorldGreeting = new HelloWorldGreeting();
 		greeter.greet(helloWorldGreeting);
