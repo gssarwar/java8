@@ -42,8 +42,6 @@ public class ThisRefrenceExaple {
 	{
 		return "this is the main thisRefrenceExample class instance ";
 	}
-	
-
 }
 interface Process1 {
 	void process(int i);
