@@ -37,7 +37,7 @@ public class ColletionJava8forEaachExample {
 		System.out.println("---------printing the collection with forEach()");
 		//this can be replace by lambda method reference
 	//	people.forEach(p->System.out.println(p));
-		
+		System.out.println("");
 		people.forEach(System.out::println);
 	}
 
